@@ -1,13 +1,14 @@
 import os
 import argparse
 from tqdm import tqdm
+import torch 
 
 PAD_token = 1
 SOS_token = 3
 EOS_token = 2
 UNK_token = 0
 
-if (os.cpu_count() > 8):
+if (torch.cuda.is_available()):
     USE_CUDA = True
 else:
     USE_CUDA = False
